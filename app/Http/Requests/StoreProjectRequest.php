@@ -33,7 +33,7 @@ class StoreProjectRequest extends FormRequest
             'descrizione' => ['nullable'], // se non fosse nullable non me li prende nel form create
             'types_id' => ['nullable', 'exists:types,id'], // SCRIVERE MEGLIO EXISTS E CONTROLALRE BENE NOME TYPE_ID
             'technology_id' => ['exists:technologies,id'],
-            'cover_path' => ['nullable', 'image']
+            'cover_image' => ['nullable', 'image']
         ];
 
     }

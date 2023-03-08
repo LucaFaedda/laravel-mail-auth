@@ -107,9 +107,10 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $form_data['slug']= $slug;
+        // dd($request);
 
         if($request->hasFile('cover_image')){
-            dd($project);
+            
             if($project->cover_image){
                 Storage::delete($project->cover_image);
             }

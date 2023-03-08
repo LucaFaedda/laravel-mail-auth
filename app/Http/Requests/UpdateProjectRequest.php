@@ -30,7 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'difficoltà' => ['required'],
             'descrizione' => ['nullable'],
             'technology_id' => ['exists:technologies,id'],
-            'cover_path' => ['nullable', 'image']
+            'cover_image' => ['nullable', 'image']
         ];
     }
 }
