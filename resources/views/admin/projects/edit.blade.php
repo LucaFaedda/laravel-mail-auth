@@ -24,15 +24,18 @@
                                         @error('title')
                                             <p class="text-danger fw-bold">{{$message}}</p>
                                         @enderror
-                                        <label class="control-label mb-2 fw-bold ">Titolo</label>
-                                        <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{old('title') ?? $project->title}}">
+                                        <label class="control-label my-2 fw-bold ">Titolo</label>
+                                        <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{old('title') ?? $project->title}}" >
+                                    </div>
+                                    <div class="col-8 mt-3">
+                                        <img src="{{asset('storage/' .$project->cover_image)}}" class="img-fluid w-50">
                                     </div>
                                     <div class="col-8">
                                         @error('cover_image')
                                             <p class="text-danger fw-bold">{{$message}}</p>
                                         @enderror
                                         <label class="control-label my-2 fw-bold ">Immagine</label>
-                                        <input type="file" name="cover_image" class="form-control" @error('cover_image') is-invalid @enderror>
+                                        <input type="file" name="cover_image" class="form-control">
                                     </div>
                                     <div class="col-3">
                                         <label class="control-label mb-2 fw-bold ">Data del progetto</label>
