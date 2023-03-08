@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Type;
+use App\Models\Lead;
 use App\Models\Project;
+Use App\Mail\NewContact;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -66,6 +69,15 @@ class ProjectController extends Controller
         // dd($newproject);
 
         // ho dovuto dare come valore nullable a descrizione e data_progetto sennò non me li trovava
+
+        $new_lead = new Lead(); // qua me lo salva nel db
+        $new_lead->title = $form_data['title'];
+        $new_lead->data_progetto = $form_data['data_progetto'];
+        $new_lead->difficoltà = $form_data['difficoltà'];
+        $new_lead->descrizione = $form_data['descrizione'];
+        $new_lead->save();
+
+        Mail::to('info@boolpres.com')->send(new NewContact($new_lead));
 
     return redirect()->route('admin.projects.index' )->with('message', 'Progetto aggiunto correttamente');
     }

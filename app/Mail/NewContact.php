@@ -48,7 +48,7 @@ class NewContact extends Mailable
     public function content() // qui invece rimandiamo al template creato, che altro non è che come visualizzano la email
     {
         return new Content(
-            view: 'view.name',
+            view: 'admin.mails.mails_new_project',
         );
     }
 
