@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row p-5">
             <div class="col-12">
-                <form action="{{route('admin.projects.store')}}" method="POST">
+                <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-12">
@@ -25,6 +25,13 @@
                                         @enderror
                                         <label class="control-label mb-2 fw-bold ">Titolo</label>
                                         <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo">
+                                    </div>
+                                    <div class="col-8">
+                                        @error('cover_image')
+                                            <p class="text-danger fw-bold">{{$message}}</p>
+                                        @enderror
+                                        <label class="control-label my-2 fw-bold ">Immagine</label>
+                                        <input type="file" name="cover_image" class="form-control">
                                     </div>
                                     <div class="col-3">
                                         <label class="control-label my-2 fw-bold ">Data del progetto</label>
@@ -61,6 +68,7 @@
                                             
                                         @endforeach
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

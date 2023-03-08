@@ -9,7 +9,7 @@ use App\Models\Type;
 
 class Project extends Model
 {
-    protected $fillable = ['title', 'data_progetto', 'difficoltà', 'descrizione', 'slug', 'types_id', 'technology_id'];
+    protected $fillable = ['title', 'data_progetto', 'difficoltà', 'descrizione', 'slug', 'types_id', 'technology_id', 'cover_image'];
     use HasFactory;
 
     public static function generateSlug($title){
