@@ -27,6 +27,13 @@
                                         <label class="control-label mb-2 fw-bold ">Titolo</label>
                                         <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{old('title') ?? $project->title}}">
                                     </div>
+                                    <div class="col-8">
+                                        @error('cover_image')
+                                            <p class="text-danger fw-bold">{{$message}}</p>
+                                        @enderror
+                                        <label class="control-label my-2 fw-bold ">Immagine</label>
+                                        <input type="file" name="cover_image" class="form-control" @error('cover_image') is-invalid @enderror>
+                                    </div>
                                     <div class="col-3">
                                         <label class="control-label mb-2 fw-bold ">Data del progetto</label>
                                         <input type="date" name="data_progetto"class="form-control"  placeholder="Data del progetto" value="{{old('data_progetto') ?? $project->data_progetto}}">

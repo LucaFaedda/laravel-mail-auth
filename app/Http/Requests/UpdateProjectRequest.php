@@ -29,7 +29,8 @@ class UpdateProjectRequest extends FormRequest
             'data_progetto' => ['nullable'],
             'difficoltà' => ['required'],
             'descrizione' => ['nullable'],
-            'technology_id' => ['exists:technologies,id']
+            'technology_id' => ['exists:technologies,id'],
+            'cover_path' => ['nullable', 'image']
         ];
     }
 }
