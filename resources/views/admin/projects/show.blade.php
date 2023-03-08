@@ -34,6 +34,9 @@
                         @endforeach
                     </p>
                 </div>
+                <div class="col-8">
+                    <img src="{{asset('storage/' .$project->cover_image)}}" class="img-fluid w-50">
+                </div>
             </div>
           </div>
       </div>
